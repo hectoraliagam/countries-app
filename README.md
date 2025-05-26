@@ -1,5 +1,35 @@
-# Vue 3 + TypeScript + Vite
+# 🌍 COUNTRINDEX
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+COUNTRINDEX is a responsive web app that lets you explore countries from around the world. It fetches data from the REST Countries API and displays details such as flags, capitals, regions, populations, languages, and more — all within a clean and dynamic interface.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+---
+
+## 🚀 Features
+
+- 🔎 Search countries by name
+- 🌐 Filter by region (Europe, Asia, Africa, etc.)
+- 🎨 Fully responsive layout with Tailwind CSS
+- 🖼️ Country flags and essential info
+- 📄 Detailed view for each country
+- ⚡ Fast and lightweight (built with Vite)
+
+---
+
+## 🛠️ Tech Stack
+
+- [Vue 3](https://vuejs.org/) (Composition API)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS v3](https://tailwindcss.com/)
+- [Axios](https://axios-http.com/)
+- [TypeScript](https://www.typescriptlang.org/) (if applicable)
+- [REST Countries API v3](https://restcountries.com/)
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/your-username/countrindex.git
+cd countrindex
+npm install
+npm run dev
