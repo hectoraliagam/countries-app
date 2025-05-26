@@ -1,6 +1,6 @@
 <template>
-  <div class="text-center my-24">
-    <h1 class="text-4xl font-bold tracking-widest text-sky-700">Countries App</h1>
-    <h6 class="text-xl mt-4">A simple app to search for countries</h6>
+  <div class="text-center my-24 text-blue-200">
+    <h1 class="text-4xl font-bold tracking-widest">COUNTRINDEX</h1>
+    <h6 class="text-xl mt-4">Search the country name in the list</h6>
   </div>
 </template>

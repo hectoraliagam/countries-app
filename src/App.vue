@@ -3,6 +3,7 @@ import { onMounted, ref, watch } from "vue";
 
 import PageHeader from "./components/PageHeader.vue";
 import CountryList from "./components/CountryList.vue";
+import PageFooter from "./components/PageFooter.vue";
 
 import axiosClient from "./utils/axios";
 import type { Country } from "./models/country.model";
@@ -27,7 +28,7 @@ const fetchCountries = async () => {
   }
 };
 const filterContries = () => {
-  filteredCountries.value = countries.value.filter((country) => 
+  filteredCountries.value = countries.value.filter((country) =>
     country.name.common.toLowerCase().includes(search.value.toLowerCase()));
   totalItems.value = filteredCountries.value.length;
   page.value = 1;
@@ -48,28 +49,32 @@ watch([filteredCountries, page, itemsPerPage], () => {
   sliceCountries(filteredCountries.value);
 });
 </script>
-
 <template>
-  <PageHeader />
-  <div class="container max-w-screen-lg mx-auto px-6">
-    <div class="mb-8">
-      <input type="text" 
-      class="border border-gray-300 rounded w-full p-1 px-4" placeholder="Search by country name"
-      v-model="search"
-      @input="filterContries">
-    </div>
-    <div class="mb-8 flex justify-center space-x-6">
-      <button 
-        :disabled="page <= 1" 
-        :class="{ 'opacity-50': page <= 1 }"
-        @click="changePage(page - 1)" 
-        class="border border-gray-300 rounded px-2 py-0.5 hover:bg-gray-200">Previus</button>
-      <button 
-        :disabled="page >= Math.ceil(totalItems / itemsPerPage)" 
-        :class="{ 'opacity-50': page >= Math.ceil(totalItems / itemsPerPage) }"
-        @click="changePage(page + 1)" 
-        class="border border-gray-300 rounded px-2 py-0.5 hover:bg-gray-200">Next</button>
-    </div>
-    <CountryList :countries="paginatedCountries" />
+  <div class="min-h-screen flex flex-col">
+    <main class="flex-grow">
+      <PageHeader />
+      <div class="container max-w-screen-lg mx-auto px-6">
+        <div class="mb-8">
+          <input type="text"
+            class="border border-gray-300 bg-gray-900 text-white font-semibold rounded w-full p-1 px-4 py-2"
+            placeholder="Search..." v-model="search" @input="filterContries">
+        </div>
+        <div class="mb-8 flex justify-center space-x-6">
+          <button :disabled="page <= 1" :class="{ 'opacity-50': page <= 1 }" @click="changePage(page - 1)"
+            class="border border-gray-300 bg-slate-200 font-bold text-slate-700 rounded px-2 py-0.5 hover:bg-gray-50">Previus</button>
+          <button :disabled="page >= Math.ceil(totalItems / itemsPerPage)"
+            :class="{ 'opacity-50': page >= Math.ceil(totalItems / itemsPerPage) }" @click="changePage(page + 1)"
+            class="border border-gray-300 bg-slate-200 font-bold text-slate-700 rounded px-2 py-0.5 hover:bg-gray-50">Next</button>
+        </div>
+        <CountryList :countries="paginatedCountries" />
+      </div>
+    </main>
+    <PageFooter />
   </div>
 </template>
+
+<style>
+body {
+  background-color: #04041f;
+}
+</style>
